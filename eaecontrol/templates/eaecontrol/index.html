@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'eaecontrol/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'eaecontrol/style.css' %}">
+    <script src="{% static 'eaecontrol/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'eaecontrol/js.js' %}"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="createReport/mountly">
+                <button class="btn btn-primary">مشاهده گزارش ماهانه</button>
+                <a href="createReport/person">
+                    <button class="btn btn-info">مشاهده گزارش فردی</button>
+                </a>
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+        <div class="col-lg-2">
+            تاریخ امروز : {{ date }}
+        </div>
+    </div>
+    <hr style="color: black">
+    <div>
+        <table class="table table-bordered text-center"
+               style="width: 80% ; margin-left: auto ; margin-right: auto ; margin-top: 50px">
+            <thead class="text-center">
+            <tr>
+                <th class="text-center">
+                    #
+                </th>
+                <th class="text-center">
+                    کد
+                </th>
+                <th class="text-center">
+                    نام و نام خانوادگی
+                </th>
+                <th class="text-center">
+                    عملیات
+                </th>
+            </tr>
+            </thead>
+            <tbody style="font-weight: 100">
+            {% if users.count %}
+                {% for user in users %}
+                    <tr>
+                        <td>
+                            <p style="margin-top: 5px">
+                                {{ forloop.counter }}
+                            </p>
+                        </td>
+                        <td>
+                            <p style="margin-top: 5px">
+                                {{ user.id }}
+                            </p>
+
+                        </td>
+                        <td
+                        ">
+                        <p style="margin-top: 5px">
+                            {{ user.name }}
+                        </p>
+                        </td>
+                        <td>
+                            {% if user.isIn %}
+                                <button data-id={{ user.id }}  class="btn btn-warning exit-btn" style="width: 80%">
+                                خروج
+                                </button>
+                            {% else %}
+                                <button data-id={{ user.id }} class="btn btn-success enter-btn" style="width: 80%">
+                                ورود
+                                </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

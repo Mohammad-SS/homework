@@ -1,0 +1,19 @@
+html, body {
+    direction: rtl;
+    height: 100%;
+    background: #063644;
+}
+
+@font-face {
+    font-family: "Iran";
+    src: url("IRANSans.ttf");
+}
+
+.container {
+    font-family: "Iran";
+    color: white;
+    font-weight: bold;
+    background: #073b4c;
+    min-height: 100%;
+    padding: 40px;
+}

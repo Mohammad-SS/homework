@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'eaecontrol/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'eaecontrol/style.css' %}">
+    <script src="{% static 'eaecontrol/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'eaecontrol/js.js' %}"></script>
+        <script src="{% static 'eaecontrol/table2CSV.js' %}"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2">
+            <a href={% url 'downloadMReport' year month %}>
+            <button id="makeExcel" class="btn btn-success">
+                خروجی اکسل
+            </button>
+            </a>
+
+        </div>
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-6">
+            از تاریخ : {{ timeRange.0 }} تا تاریخ : {{ timeRange.1 }}
+        </div>
+    </div>
+    <hr style="color: black">
+    <div class="row">
+        <p class="label-info"
+           style="padding-top: 20px ; padding-bottom: 20px ; padding-right: 10px; border-radius: 10px ; color: black">
+    <span class="h4">
+        راهنما :
+    </span>
+            <br>
+            <span class="h6">
+        * = این عدد نمایشگر مجموع ساعات حضور مجاز تعریف شده  برای این گروه کاربری در اداره است
+            </span>
+        </p>
+    </div>
+    <div class="row h5">
+        <table id="dataTable" class="table table-bordered text-center"
+               style="width: 80% ; margin-left: auto ; margin-right: auto ; margin-top: 50px">
+            <thead class="text-center">
+            <tr>
+                <th class="text-center">
+                    #
+                </th>
+                <th class="text-center">
+                    نام و نام خانوادگی
+
+                </th>
+                <th class="text-center">
+                    گروه کاربری
+                </th>
+                <th class="text-center">
+                    *مجموع ساعات حضور
+                </th>
+            </tr>
+            </thead>
+            <tbody style="font-weight: 100">
+            {% for user in data %}
+                <tr>
+                    <td>
+                        <p style="margin-top: 5px">
+                            {{ forloop.counter }}
+                        </p>
+                    </td>
+                    <td>
+                        <p style="margin-top: 5px">
+                            {{ user.user.name }}
+                        </p>
+
+                    </td>
+                    <td>
+                        <p style="margin-top: 5px">
+                            {{ user.user.group }}
+                        </p>
+                    </td>
+                    <td>
+                        {{ user.monthlyWork }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
