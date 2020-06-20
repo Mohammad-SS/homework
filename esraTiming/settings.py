@@ -25,7 +25,7 @@ SECRET_KEY = '5q(8&yepvym)lya81lyots^d4#hby%m2c(gfrqejsxt97jbxr^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.16.13.164']
+ALLOWED_HOSTS = ['172.16.13.164' , '127.0.0.1']
 
 
 # Application definition
@@ -51,7 +51,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'esraTiming.urls'
-print(os.path.join(BASE_DIR, 'eaecontrol/templates'))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

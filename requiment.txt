@@ -1,0 +1,13 @@
+Django==2.2.13
+et-xmlfile==1.0.1
+jdatetime==3.6.2
+jdcal==1.4.1
+lml==0.0.9
+openpyxl==2.6.4
+pyexcel==0.5.15
+pyexcel-io==0.5.20
+pyexcel-webio==0.1.4
+pyexcel-xlsx==0.5.8
+pytz==2020.1
+sqlparse==0.3.1
+texttable==1.6.2

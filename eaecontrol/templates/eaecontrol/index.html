@@ -43,6 +43,9 @@
                     نام و نام خانوادگی
                 </th>
                 <th class="text-center">
+                    گروه کاربری
+                </th>
+                <th class="text-center">
                     عملیات
                 </th>
             </tr>
@@ -62,10 +65,14 @@
                             </p>
 
                         </td>
-                        <td
-                        ">
+                        <td>
                         <p style="margin-top: 5px">
                             {{ user.name }}
+                        </p>
+                        </td>
+                    <td>
+                        <p style="margin-top: 5px">
+                            {{ user.group.name }}
                         </p>
                         </td>
                         <td>

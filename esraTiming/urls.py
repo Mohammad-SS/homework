@@ -25,8 +25,8 @@ urlpatterns = [
     path('createReport/person/<int:y>/<int:m>/<int:id>', eaeView.showPersonReport),
     path('createReport/mountly' , eaeView.selectMonth),
     path('createReport/mountly/<int:y>/<int:m>' , eaeView.showMounthlyReport),
+    path('createReport/mountlyaaaa/<int:y>/<int:m>', eaeView.showMounthlyReport2),
     path('createReport/mountly/<int:y>/<int:m>/downloadMontlyReport', eaeView.downloadMReport , name='downloadMReport'),
     path('createReport/mountly/<int:y>/<int:m>/<int:id>/downloadPersonReport', eaeView.downloadPReport, name='downloadPReport'),
-
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls , name='adminpage'),
 ]

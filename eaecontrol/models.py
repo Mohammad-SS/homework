@@ -31,17 +31,17 @@ class Timing(models.Model):
     def formatedTime(self):
         return self.time.strftime("%H:%M")
 
-    @property
-    def operation(self):
-        if self.type:
-            return "ورود"
-        else:
-            return "خروج"
+    # @property
+    # def operation(self):
+        # if self.type:
+        #     return "ورود"
+        # else:
+        #     return "خروج"
 
-    def __str__(self):
-        date = jdatetime.datetime.fromgregorian(datetime= self.date)
-        if self.type:
-            type = "ورود"
-        else:
-            type = "خروج"
-        return date.strftime('%Y/%m/%d') + " - " + self.person.name + " : " + type
+    # def __str__(self):
+    #     date = jdatetime.datetime.fromgregorian(datetime= self.date)
+    #     # if self.type:
+    #     #     type = "ورود"
+    #     # else:
+    #     #     type = "خروج"
+    #     return date.strftime('%Y/%m/%d') + " - " + self.person.name + " : " + type
